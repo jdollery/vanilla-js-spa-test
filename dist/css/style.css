@@ -358,3 +358,11 @@ img {
   position: relative;
 }
 
+.tabs__item__content {
+  display: block;
+}
+
+.tabs__item__content.closed {
+  display: none;
+}
+
