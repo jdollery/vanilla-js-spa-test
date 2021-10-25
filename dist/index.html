@@ -17,23 +17,23 @@
   </head>
   <body>
     <!-- http://www.nouvelle-etiquette.fr/ -->
-    <div class="view">
+    <div class="app">
       <div class="tabs">
-        <div class="tabs__item">
+        <div class="tabs__item" id="section-1">
           <a class="tabs__item__btn" href="#section-1">Tab 1</a>
           <div class="tabs__item__content">
             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
           </div>
         </div>
-        <div class="tabs__item">
+        <div class="tabs__item closed" id="section-2">
           <a class="tabs__item__btn" href="#section-2">Tab 2</a>
-          <div class="tabs__item__content closed">
+          <div class="tabs__item__content">
             <h3>Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
           </div>
         </div>
-        <div class="tabs__item" id="itemThree">
+        <div class="tabs__item closed" id="section-3">
           <a class="tabs__item__btn" href="#section-3">Tab 3</a>
-          <div class="tabs__item__content closed">
+          <div class="tabs__item__content">
             <h3>Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
           </div>
         </div>
@@ -42,40 +42,87 @@
 
     <script>
 
-      const elements = document.querySelectorAll('.tabs__item');
+      (function() {
+        var app = {
+          'routes': {
+            'section-1': {
+              'rendered': function() {
+                app.preventScroll();
+              }
+            },
+            'section-2': {
+              'rendered': function() {
+                app.preventScroll();
+              }
+            },
+            'section-3': {
+              'rendered': function() {
+                app.preventScroll();
+              }
+            },
+          },
+          'default': 'section-1',
+          'preventScroll': function() {
+            document.querySelector('html').scrollTop = 0;
+            document.querySelector('body').scrollTop = 0;
+          },
+          'routeChange': function() {
+            app.routeID = location.hash.slice(1);
+            app.route = app.routes[app.routeID];
+            
+            app.routeElem = document.getElementById(app.routeID);
+            
+            // if(app.routeClass = app.routeElem){
+            //   this.classList.add('active');
+            // } 
+            // document.querySelector('.tabs__item__btn').classList.toggle('active');
 
-      elements.forEach(element =>{
-          let btn = element.querySelector('.tabs__item__btn');
-          var answer = element.lastElementChild;
-          var answers = document.querySelectorAll('.tabs__item__content');
-          btn.addEventListener('click', ()=>{
-              answers.forEach(ans =>{
-                  if(answer !== ans){
-                      ans.classList.add('closed');
-                  }
-              });
-              answer.classList.toggle('closed');
-          });
-      });
+            let elements = document.querySelectorAll('.tabs__item');
 
-      function displayHash() {
-        var thePath = window.location.pathname;
-        if (thePath.length == 0) { thePath = "_index"; }
-        var elems = document.querySelectorAll("#caption");
-        elems[0].innerText = "Current Hash: " + thePath;
-        return true;
-      }
+            elements.forEach(element =>{
 
-      window.addEventListener("hashchange", function() {
-        console.log("hashchange event");
-        displayHash();
-      });
+              if(element == app.routeElem){
+                element.classList.add('closed');
+              }
 
-      window.addEventListener("DOMContentLoaded", function(ev) {
-        console.log("DOMContentLoaded event");
-        displayHash();
-      });
+              element.classList.toggle('closed');
 
+            });
+            
+            app.route.rendered();
+          },
+
+          'init': function() {
+            window.addEventListener('hashchange', function() {
+              app.routeChange();
+            });
+            if (!window.location.hash) {
+              window.location.hash = app.default;
+            } else {
+              app.routeChange();
+            }
+          }
+        };
+        window.app = app;
+      })();
+
+      app.init();
+
+      // const elements = document.querySelectorAll('.tabs__item');
+
+      // elements.forEach(element =>{
+      //   let btn = element.querySelector('.tabs__item__btn');
+      //   let answer = element.lastElementChild;
+      //   let answers = document.querySelectorAll('.tabs__item__content');
+      //   btn.addEventListener('click', ()=>{
+      //       answers.forEach(ans =>{
+      //           if(answer !== ans){
+      //               ans.classList.add('closed');
+      //           }
+      //       });
+      //       answer.classList.toggle('closed');
+      //   });
+      // });
 
     </script>
 

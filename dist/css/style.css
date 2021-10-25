@@ -358,11 +358,11 @@ img {
   position: relative;
 }
 
-.tabs__item__content {
+.tabs__item .tabs__item__content {
   display: block;
 }
 
-.tabs__item__content.closed {
+.tabs__item.closed .tabs__item__content {
   display: none;
 }
 
