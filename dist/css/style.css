@@ -359,10 +359,10 @@ img {
 }
 
 .tabs__item .tabs__item__content {
-  display: none;
+  display: block;
 }
 
-.tabs__item.open .tabs__item__content {
-  display: block;
+.tabs__item .tabs__item__content.closed {
+  display: none;
 }
 
