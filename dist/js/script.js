@@ -137,6 +137,7 @@
 
 // app.init();
 
+
 const elements = document.querySelectorAll('.tabs__item');
 
 elements.forEach(element =>{
@@ -146,13 +147,16 @@ elements.forEach(element =>{
   let answers = document.querySelectorAll('.tabs__item__content');
 
   btn.addEventListener("click",function(e){
-      answers.forEach(ans =>{
-        if(answer !== ans){
-          ans.classList.add('closed');
-        }
-      });
-      answer.classList.toggle('closed');
-      // e.preventDefault();
+
+    answers.forEach(ans =>{
+      if(answer !== ans){
+        ans.classList.add('closed');
+      }
+    });
+
+    answer.classList.toggle('closed');
+    // e.preventDefault();
+
   });
 
 });
