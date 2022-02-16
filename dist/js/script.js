@@ -140,7 +140,7 @@
 
 const elements = document.querySelectorAll('.tabs__item');
 
-elements.forEach(element =>{
+elements.forEach(element => {
 
   let btn = element.querySelector('.tabs__item__btn');
   let answer = element.lastElementChild;
