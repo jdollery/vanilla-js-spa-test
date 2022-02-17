@@ -24,6 +24,7 @@ elements.forEach(element => {
 
 (function() {
 	var anchors = document.getElementsByTagName('a'); //Find all links
+
 	var historyState = {};
 	//We will use the current "folder" as the base, so all new locations are relative to that
 	var base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
@@ -38,6 +39,8 @@ elements.forEach(element => {
 		anchors[i].addEventListener('click', function(evt) {
 			//When clicked, we do not want the link to be processed normally
 			evt.preventDefault();
+ 
+			var anchorsId = window.location.href.split('/')[3]; //get end of string
 			
 			//Change to new page with hash
 			var newPage = window.location.href + '#' + evt.target.href.replace(base, '');
@@ -48,6 +51,24 @@ elements.forEach(element => {
 				//Remove hash from URL and replace with desired URL
 				history.pushState(historyState, evt.target.innerHTML, evt.target.href)
 			}
+
+      console.log(anchorsId); 
+
+				var elements = document.querySelectorAll(".tabs__item");
+				for (var i = 0; i < elements.length; i++) {
+
+					console.log(elements[i].id); //gets all ids
+
+					var id = elements[i].id;
+
+					if (id == anchorsId) {
+						console.log('match' + id);
+					}
+
+				}
+
 		});
-	}
+
+	};
+
 })();
