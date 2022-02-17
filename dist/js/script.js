@@ -55,8 +55,10 @@
 
 				if (window.location.href.replace(base, '') == id) {
 					element.classList.add("open");
-				// } else {
-				// 	elementFirst.classList.add("open");
+				}
+
+				if (window.location.href.replace(base, '') == !id) {
+					elementFirst.classList.add("open");
 				}
 
 			}
