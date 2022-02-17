@@ -1,27 +1,3 @@
-const elements = document.querySelectorAll('.tabs__item');
-
-elements.forEach(element => {
-
-  let btn = element.querySelector('.tabs__item__btn');
-  let answer = element.lastElementChild;
-  let answers = document.querySelectorAll('.tabs__item__content');
-
-  btn.addEventListener("click",function(e){
-
-    answers.forEach(ans =>{
-      if(answer !== ans){
-        ans.classList.add('closed');
-      }
-    });
-
-    answer.classList.toggle('closed');
-    e.preventDefault();
-
-  });
-
-
-});
-
 (function() {
 	var anchors = document.getElementsByTagName('a'); //Find all links
 
@@ -35,7 +11,6 @@ elements.forEach(element => {
 		if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
 			continue;
 		}
-
 		
 		anchors[i].addEventListener('click', function(evt) {
 			//When clicked, we do not want the link to be processed normally
@@ -51,35 +26,87 @@ elements.forEach(element => {
 				history.pushState(historyState, evt.target.innerHTML, evt.target.href)
 			}
 
+			var hash = evt.target.href.replace(base, '')
+
+			console.log(hash);
+
+			var elements = document.querySelectorAll('.tabs__item');
+
+			for (var i = 0; i < elements.length; i++) {
+
+				var id = elements[i].id;
+
+				var element = document.getElementById(id);
+
+				if (id == hash) {
+  				element.classList.add("open");
+
+					answers.forEach(ans =>{
+						if(answer !== ans){
+							ans.classList.add('closed');
+						}
+					});
+
+					answer.classList.toggle('closed');
+
+					console.log('match ' + id); //matches id of url
+				}
+
+			}
+
 		});
-
-		// var anchorsId = window.location.href.split('/')[3]; //get end of string
-
-		// var elements = document.querySelectorAll(".tabs__item");
-		// for (var i = 0; i < elements.length; i++) {
-
-		// 	var id = elements[i].id;
-
-		// 	if (id == anchorsId) {
-		// 		console.log('match ' + id); //matches id of url
-		// 	}
-
-		// }
 
 	}
 
 })();
 
 
-var anchorsLink = window.location.href.split('/')[3]; //get end of string
+// var elements = document.querySelectorAll('.tabs__item');
 
-var items = document.querySelectorAll(".tabs__item");
-for (var i = 0; i < items.length; i++) {
+// var href = window.location.href.split('/')[3]; //get end of string
 
-	var id = items[i].id;
+// elements.forEach(element => {
 
-	if (id == anchorsLink) {
-		console.log('match ' + id); //matches id of url
-	}
+//   var btn = element.querySelector('.tabs__item__btn');
+//   var answer = element.lastElementChild;
+//   var answers = document.querySelectorAll('.tabs__item__content');
 
-}
+//   btn.addEventListener("click",function(e){
+
+//     answers.forEach(ans =>{
+//       if(answer !== ans){
+//         ans.classList.add('closed');
+//       }
+//     });
+
+//     answer.classList.toggle('closed');
+//     e.preventDefault();
+
+// 		for (var i = 0; i < elements.length; i++) {
+
+// 			var id = elements[i].id;
+
+// 			if (id == href) {
+// 				console.log('match ' + id); //matches id of url
+// 			}
+
+// 		}
+
+//   });
+
+
+// });
+
+
+// var href = window.location.href.split('/')[3]; //get end of string
+
+// var items = document.querySelectorAll(".tabs__item");
+// for (var i = 0; i < items.length; i++) {
+
+// 	var id = items[i].id;
+
+// 	if (id == href) {
+// 		console.log('match ' + id); //matches id of url
+// 	}
+
+// }
