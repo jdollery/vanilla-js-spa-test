@@ -1,5 +1,7 @@
 (function() {
-	var anchors = document.getElementsByTagName('a'); //Find all links
+	// var anchors = document.getElementsByTagName('a'); //Find all links
+	var anchors = document.querySelectorAll('.tabs__item__btn');
+	var elements = document.querySelectorAll('.tabs__item');
 
 	var historyState = {};
 	//We will use the current "folder" as the base, so all new locations are relative to that
@@ -28,28 +30,30 @@
 
 			var hash = evt.target.href.replace(base, '')
 
-			console.log(hash);
+			for (var i = 0; i < elements.length; i++) {
 
-			var elements = document.querySelectorAll('.tabs__item');
+				var id = elements[i].id;
+				var element = document.getElementById(id);
+
+				if (id !== hash) {
+  				element.classList.add("open");
+				}
+
+				element.classList.toggle('open');
+
+			}
+
+		});
+
+		window.addEventListener('load', (event) => {
 
 			for (var i = 0; i < elements.length; i++) {
 
 				var id = elements[i].id;
-
 				var element = document.getElementById(id);
 
-				if (id == hash) {
-  				element.classList.add("open");
-
-					answers.forEach(ans =>{
-						if(answer !== ans){
-							ans.classList.add('closed');
-						}
-					});
-
-					answer.classList.toggle('closed');
-
-					console.log('match ' + id); //matches id of url
+				if (window.location.href.replace(base, '') == id) {
+					element.classList.add("open");
 				}
 
 			}
@@ -59,54 +63,3 @@
 	}
 
 })();
-
-
-// var elements = document.querySelectorAll('.tabs__item');
-
-// var href = window.location.href.split('/')[3]; //get end of string
-
-// elements.forEach(element => {
-
-//   var btn = element.querySelector('.tabs__item__btn');
-//   var answer = element.lastElementChild;
-//   var answers = document.querySelectorAll('.tabs__item__content');
-
-//   btn.addEventListener("click",function(e){
-
-//     answers.forEach(ans =>{
-//       if(answer !== ans){
-//         ans.classList.add('closed');
-//       }
-//     });
-
-//     answer.classList.toggle('closed');
-//     e.preventDefault();
-
-// 		for (var i = 0; i < elements.length; i++) {
-
-// 			var id = elements[i].id;
-
-// 			if (id == href) {
-// 				console.log('match ' + id); //matches id of url
-// 			}
-
-// 		}
-
-//   });
-
-
-// });
-
-
-// var href = window.location.href.split('/')[3]; //get end of string
-
-// var items = document.querySelectorAll(".tabs__item");
-// for (var i = 0; i < items.length; i++) {
-
-// 	var id = items[i].id;
-
-// 	if (id == href) {
-// 		console.log('match ' + id); //matches id of url
-// 	}
-
-// }
