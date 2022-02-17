@@ -35,12 +35,11 @@ elements.forEach(element => {
 		if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
 			continue;
 		}
+
 		
 		anchors[i].addEventListener('click', function(evt) {
 			//When clicked, we do not want the link to be processed normally
 			evt.preventDefault();
- 
-			var anchorsId = window.location.href.split('/')[3]; //get end of string
 			
 			//Change to new page with hash
 			var newPage = window.location.href + '#' + evt.target.href.replace(base, '');
@@ -52,23 +51,35 @@ elements.forEach(element => {
 				history.pushState(historyState, evt.target.innerHTML, evt.target.href)
 			}
 
-      console.log(anchorsId); 
-
-				var elements = document.querySelectorAll(".tabs__item");
-				for (var i = 0; i < elements.length; i++) {
-
-					console.log(elements[i].id); //gets all ids
-
-					var id = elements[i].id;
-
-					if (id == anchorsId) {
-						console.log('match' + id);
-					}
-
-				}
-
 		});
 
-	};
+		// var anchorsId = window.location.href.split('/')[3]; //get end of string
+
+		// var elements = document.querySelectorAll(".tabs__item");
+		// for (var i = 0; i < elements.length; i++) {
+
+		// 	var id = elements[i].id;
+
+		// 	if (id == anchorsId) {
+		// 		console.log('match ' + id); //matches id of url
+		// 	}
+
+		// }
+
+	}
 
 })();
+
+
+var anchorsLink = window.location.href.split('/')[3]; //get end of string
+
+var items = document.querySelectorAll(".tabs__item");
+for (var i = 0; i < items.length; i++) {
+
+	var id = items[i].id;
+
+	if (id == anchorsLink) {
+		console.log('match ' + id); //matches id of url
+	}
+
+}
