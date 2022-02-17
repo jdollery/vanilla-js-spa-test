@@ -51,9 +51,12 @@
 
 				var id = elements[i].id;
 				var element = document.getElementById(id);
+				var elementFirst = document.getElementById('section-1');
 
 				if (window.location.href.replace(base, '') == id) {
 					element.classList.add("open");
+				// } else {
+				// 	elementFirst.classList.add("open");
 				}
 
 			}
