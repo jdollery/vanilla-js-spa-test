@@ -52,12 +52,13 @@
 				var id = elements[i].id;
 				var element = document.getElementById(id);
 				var elementFirst = document.getElementById('section-1');
+				var url = window.location.href.replace(base, '');
 
-				if (window.location.href.replace(base, '') == id) {
+				if (url == id) {
 					element.classList.add("open");
 				}
 
-				if (window.location.href.replace(base, '') == !id) {
+				if (url == !id) {
 					elementFirst.classList.add("open");
 				}
 
