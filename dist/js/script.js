@@ -37,7 +37,7 @@
 
 				if (id !== hash) {
   				element.classList.add("open");
-				}
+				} 
 
 				element.classList.toggle('open');
 
