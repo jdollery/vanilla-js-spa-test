@@ -56,10 +56,11 @@
 
 				if (url == id) {
 					element.classList.add("open");
-				}
+					// console.log(url, id);
 
-				if (url == !id) {
+				} else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
 					elementFirst.classList.add("open");
+					// console.log(url, id);
 				}
 
 			}
