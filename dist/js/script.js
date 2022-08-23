@@ -4,18 +4,18 @@
 	var elements = document.querySelectorAll('.tabs__item');
 
 	var historyState = {};
-	//We will use the current "folder" as the base, so all new locations are relative to that
+
 	var base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
 	
-	//Go through all the links and change the relevant ones
+
 	for (var i = 0; i < anchors.length; i++) {
-		//Only apply this to same domain links
+
 		if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
 			continue;
 		}
 		
 		anchors[i].addEventListener('click', function(evt) {
-			//When clicked, we do not want the link to be processed normally
+
 			evt.preventDefault();
 			
 			//Change to new page with hash
@@ -36,7 +36,7 @@
 				var element = document.getElementById(id);
 
 				if (id !== hash) {
-  				element.classList.add("open");
+					element.classList.add("open");
 				} 
 
 				element.classList.toggle('open');
@@ -53,15 +53,21 @@
 				var element = document.getElementById(id);
 				var elementFirst = document.getElementById('section-1');
 				var url = window.location.href.replace(base, '');
+				var current = window.location.href;
 
 				if (url == id) {
 					element.classList.add("open");
-					// console.log(url, id);
+					console.log(current);
 
-				} else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
+				} else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab - not checking array
 					elementFirst.classList.add("open");
-					// console.log(url, id);
+					console.log(current);
 				}
+
+				// } else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
+				// 	elementFirst.classList.add("open");
+				// 	// console.log(url, id);
+				// }
 
 			}
 
