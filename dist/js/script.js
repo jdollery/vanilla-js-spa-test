@@ -3,11 +3,14 @@
 	var anchors = document.querySelectorAll('.tabs__item__btn');
 	var elements = document.querySelectorAll('.tabs__item');
 
+	// var e = document.querySelectorAll('.tabs__item')[0];
+	// var all = e.id;
+	// console.log(all);
+
 	var historyState = {};
 
 	var base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
 	
-
 	for (var i = 0; i < anchors.length; i++) {
 
 		if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
@@ -23,6 +26,7 @@
 			window.location.href = newPage;
 			
 			//Only do this if history.pushState is supported by the browser
+
 			if (history && history.pushState) {
 				//Remove hash from URL and replace with desired URL
 				history.pushState(historyState, evt.target.innerHTML, evt.target.href)
@@ -49,6 +53,10 @@
 
 			for (var i = 0; i < elements.length; i++) {
 
+				function all(){
+					return [...elements].map(e => e.id).join(", "); //arry of all the elements ids
+				}
+
 				var id = elements[i].id;
 				var element = document.getElementById(id);
 				var elementFirst = document.getElementById('section-1');
@@ -57,11 +65,11 @@
 
 				if (url == id) {
 					element.classList.add("open");
-					console.log(current);
+					// console.log(current);
 
-				} else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab - not checking array
+				} else if ([all].indexOf(url) == -1) { //if 404 add class to first tab - not checking array
 					elementFirst.classList.add("open");
-					console.log(current);
+					console.log( all() );
 				}
 
 				// } else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
