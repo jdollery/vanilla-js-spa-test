@@ -65,11 +65,15 @@
 
 				if (url == id) {
 					element.classList.add("open");
-					// console.log(current);
+					console.log(id);
 
-				} else if ([all].indexOf(url) == -1) { //if 404 add class to first tab - not checking array
-					elementFirst.classList.add("open");
-					console.log( all() );
+				// } else if ([all].indexOf(url) == -1) { //if 404 add class to first tab - not checking array
+				// 	elementFirst.classList.add("open");
+				// 	console.log( all() );
+				// }
+
+				} else {
+					console.log( 'none' );
 				}
 
 				// } else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
