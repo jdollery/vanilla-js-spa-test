@@ -13,9 +13,13 @@
 	
 	for (var i = 0; i < anchors.length; i++) {
 
-		if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
-			continue;
-		}
+		// if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
+		// 	continue;
+		// }
+
+		// if (location.length == 0) {
+		// 	location = "/";
+		// }
 		
 		anchors[i].addEventListener('click', function(evt) {
 
@@ -60,30 +64,44 @@
 				var id = elements[i].id;
 				var element = document.getElementById(id);
 				var elementFirst = document.getElementById('section-1');
+				var element404 = document.getElementById('404');
 				var url = window.location.href.replace(base, '');
 				var current = window.location.href;
+				var location = window.location.pathname;
 
 				if (url == id) {
 					element.classList.add("open");
 					console.log(id);
-
-				// } else if ([all].indexOf(url) == -1) { //if 404 add class to first tab - not checking array
-				// 	elementFirst.classList.add("open");
-				// 	console.log( all() );
-				// }
-
-				} else {
-					console.log( 'none' );
+				} 
+				
+				if (url == 0) { //if home
+					elementFirst.classList.add("open");
+					console.log(id);
 				}
 
-				// } else if (!window.location.href.indexOf(id) > -1) { //if 404 add class to first tab
-				// 	elementFirst.classList.add("open");
-				// 	// console.log(url, id);
-				// }
+				//404 working, but showing on home still
+
+				var http = new XMLHttpRequest();
+
+				if (http.status != 404) { //if 404
+					element404.classList.add("open");
+					console.log(id);
+				}
 
 			}
 
 		});
+
+		// var href = window.location.href;
+		// function UrlExists(href) {
+		// 		var http = new XMLHttpRequest();
+		// 		http.open('HEAD', href, false);
+		// 		http.send();
+		// 		if (http.status != 404) {
+		// 			element404.classList.add("open");
+		// 		}
+				
+		// }
 
 	}
 
