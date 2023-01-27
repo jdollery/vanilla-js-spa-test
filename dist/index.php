@@ -38,6 +38,11 @@
             <h3>Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
           </div>
         </div>
+        <div class="tabs__item" id="404">
+          <div class="tabs__item__content">
+            <h3>404</h3>
+          </div>
+        </div>
       </div>
 
     </div>
