@@ -11,109 +11,98 @@
 
 	var base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
 	
-	// for (var i = 0; i < anchors.length; i++) {
-	anchors.forEach(function (anchor, index) {
-		
-		anchor.addEventListener('click', function(event) {
+	for (var i = 0; i < anchors.length; i++) {
 
-			event.preventDefault();
+		// if (anchors[i].href.substring(0, location.origin.length) !== location.origin) {
+		// 	continue;
+		// }
+
+		// if (location.length == 0) {
+		// 	location = "/";
+		// }
+		
+		anchors[i].addEventListener('click', function(evt) {
+
+			evt.preventDefault();
 			
 			//Change to new page with hash
-			var newPage = window.location.href + '#' + event.target.href.replace(base, '');
+			var newPage = window.location.href + '#' + evt.target.href.replace(base, '');
 			window.location.href = newPage;
 			
 			//Only do this if history.pushState is supported by the browser
 
-			//Remove hash from URL and replace with desired URL
-			if (history && history.pushState) { 
-				history.pushState(historyState, event.target.innerHTML, event.target.href)
+			if (history && history.pushState) {
+				//Remove hash from URL and replace with desired URL
+				history.pushState(historyState, evt.target.innerHTML, evt.target.href)
 			}
 
-			var hash = event.target.href.replace(base, '')
+			var hash = evt.target.href.replace(base, '')
 
-			console.log(hash + " Open");
+			for (var i = 0; i < elements.length; i++) {
 
-			// for (var i = 0; i < elements.length; i++) {
-			// anchors.forEach(function (elements, index) {
+				var id = elements[i].id;
+				var element = document.getElementById(id);
 
-			var id = elements[index].id;
-			var element = document.getElementById(id);
+				if (id !== hash) {
+					element.classList.add("open");
+				} 
 
-			if (id !== hash) {
-				element.classList.add("open");
-			} 
+				element.classList.toggle('open');
 
-			element.classList.toggle('open');
-
-			console.log(id + " Clicked");
-
-			// });
+			}
 
 		});
 
-	});
+		window.addEventListener('load', (event) => {
 
-	window.addEventListener('load', (event) => {
+			for (var i = 0; i < elements.length; i++) {
 
-		var url = window.location.href.replace(base, '');
+				function all(){
+					return [...elements].map(e => e.id).join(", "); //arry of all the elements ids
+				}
 
-		console.log('Current Page: ' + url) // value
+				var id = elements[i].id;
+				var element = document.getElementById(id);
+				var elementFirst = document.getElementById('section-1');
+				var element404 = document.getElementById('404');
+				var url = window.location.href.replace(base, '');
+				var current = window.location.href;
+				var location = window.location.pathname;
 
-		// for (var i = 0; i < elements.length; i++) {
-		elements.forEach(function (element, index) {
+				if (url == id) {
+					element.classList.add("open");
+					console.log(id);
+				} 
+				
+				if (url == 0) { //if home
+					elementFirst.classList.add("open");
+					console.log(id);
+				}
 
-			// function all(){
-			// 	return [...elements].map(e => e.id).join(", "); //arry of all the elements ids
-			// }
+				//404 working, but showing on home still
 
-			// var id = [].slice.call(document.getElementsByClassName('tabs__item'));
+				// var http = new XMLHttpRequest();
 
-			// id.forEach(function(id){
-			// 	console.log(id.getAttribute('id'))
-			// });
+				// if (http.status != 404) { //if 404
+				// 	element404.classList.add("open");
+				// 	console.log(id);
+				// }
 
-			var id = elements[index].id;
-			var element = document.getElementById(id);
-			var elementFirst = document.getElementById('section-1');
-			var element404 = document.getElementById('404');
-			
-			// var current = window.location.href;
-			// var location = window.location.pathname;
-
-			// console.log(index) // index
-			// console.log(url !== id) // value
-
-			// var href = window.location.href;
-			// var http = new XMLHttpRequest();
-			// http.open('HEAD', href, false);
-			// http.send();
-
-			if (url == 0) { //if home
-				elementFirst.classList.add("open");
-				console.log('Current ID: ', id); //returns all ids
-			} 
-			
-			if (url == id) { //if page
-				element.classList.add("open");
-				console.log('Current ID: ', id);
-			} 
-			
-			// if (http.status = 404) { //if 404
-			if (url == 0) { //if page
-				element404.classList.add("open");
-				// console.log('Home Page') // value
 			}
-
-			//404 working, but showing on home still
-
-			// var http = new XMLHttpRequest();
-
-			// if (http.status = 404) { //if 404
-			// 	element404.classList.add("open");
-			// }
 
 		});
 
-	});
+		// var href = window.location.href;
+		// function UrlExists(href) {
+		// 		var http = new XMLHttpRequest();
+		// 		http.open('HEAD', href, false);
+		// 		http.send();
+		// 		if (http.status != 404) {
+		// 			element404.classList.add("open");
+		// 		}
+				
+		// }
+
+	}
 
 })();
