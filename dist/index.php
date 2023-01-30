@@ -43,9 +43,12 @@
             <h3>404</h3>
           </div>
         </div>
+        
       </div>
 
     </div>
+    
+    <div id="content"></div>
 
     <script src="./js/script.js"></script>
 
