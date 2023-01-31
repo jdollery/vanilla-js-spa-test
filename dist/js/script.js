@@ -41,24 +41,26 @@ var elements = document.querySelectorAll('.tabs__item');
 // 	},
 // };
 
-anchors.forEach(function (anchor, index) {
+var b = window.location.href 
+var s = b.toString().split("/")[3]; //Gets current URL removes slash
+console.log(s);
 
-  // if (anchor.href.substring(0, location.origin.length) !== location.origin) {
-  //   return true;
-  // }
+elements.forEach(function (element, i) {
 
-  // window.history.pushState(null, null, window.location.pathname);
+	var id = elements[i].id;
+	var element = document.getElementById(id);
+
+	if (id == s) {
+		element.classList.add("open");
+	} 
+
+});
+
+anchors.forEach(function (anchor) {
   
-  var routes = anchor.href;
-
-  // var str = path.split("/");
-
-  // var pathname = new URL(routes).pathname;
-
-  // console.log(pathname);
-
-  var splitURL = routes.toString().split("/")[3];
-  console.log(splitURL);  
+  var a = anchor.href;
+	var u = a.toString().split("/")[3]; //Gets the anchor links and removes slash
+	// console.log(u); 
 
   // // create a function that watches the url and calls the urlLocationHandler
   // const urlRoute = (event) => {
@@ -73,33 +75,40 @@ anchors.forEach(function (anchor, index) {
 
 	// });
 
-
-});
-
-document.addEventListener('click', function(e) {
-
-	e.preventDefault();
+	// window.addEventListener('popstate', function(e) {
 	
-	var t = e.target.href.toString().split("/")[3]; //Get the url and remove the slash
+	// console.log('POP')
 
-  console.log(t); 
+	// });
 
-	window.history.pushState({}, "", t); //Change the url using the target url without page reload.
 
-	elements.forEach(function (element, i) {
+	anchor.addEventListener('click', function(e) {
 
-		var id = elements[i].id;
-		var element = document.getElementById(id);
+		e.preventDefault();
+		
+		var t = e.target.href.toString().split("/")[3]; //Get the url and remove the slash
 
-		if (id !== t) {
-			element.classList.add("open");
-		} 
+		console.log(t); 
 
-		element.classList.toggle('open');
+		window.history.pushState({}, "", t); //Change the url using the target url without page reload.
+
+		elements.forEach(function (element, i) {
+
+			var id = elements[i].id;
+			var element = document.getElementById(id);
+
+			if (id !== t) {
+				element.classList.add("open");
+			} 
+
+			element.classList.toggle('open');
+
+		});
 
 	});
 
 });
+
 
 // create a function that handles the url location
 // const urlLocationHandler = async () => {

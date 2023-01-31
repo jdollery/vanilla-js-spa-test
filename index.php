@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
   </head>
   <body>
     <!-- http://www.nouvelle-etiquette.fr/ -->
@@ -50,7 +50,7 @@
     
     <div id="content"></div>
 
-    <script src="./js/script.js"></script>
+    <script src="./dist/js/script.js"></script>
 
   </body>
 </html>
