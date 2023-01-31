@@ -53,7 +53,7 @@ anchors.forEach(function (anchor, index) {
 
   // var str = path.split("/");
 
-  var pathname = new URL(routes).pathname;
+  // var pathname = new URL(routes).pathname;
 
   // console.log(pathname);
 
@@ -69,18 +69,35 @@ anchors.forEach(function (anchor, index) {
   //   urlLocationHandler();
   // };
 
-  document.addEventListener('click', function(e) {
+	// elements.forEach(function (element, i) {
 
-    e.preventDefault();
+	// });
 
-    // var newPage = window.location.href + '#' + evt.target.href.replace(base, '');
 
-		// window.location.href = routes;
+});
 
-    // console.log(routes);
-  
-  });
+document.addEventListener('click', function(e) {
 
+	e.preventDefault();
+	
+	var t = e.target.href.toString().split("/")[3]; //Get the url and remove the slash
+
+  console.log(t); 
+
+	window.history.pushState({}, "", t); //Change the url using the target url without page reload.
+
+	elements.forEach(function (element, i) {
+
+		var id = elements[i].id;
+		var element = document.getElementById(id);
+
+		if (id !== t) {
+			element.classList.add("open");
+		} 
+
+		element.classList.toggle('open');
+
+	});
 
 });
 
