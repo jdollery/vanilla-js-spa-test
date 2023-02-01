@@ -3,7 +3,7 @@ var elements = document.querySelectorAll('.tabs__item');
 
 var b = window.location.href 
 var s = b.toString().split("/")[3]; //Gets current URL removes slash
-console.log(s);
+// console.log(s);
 
 elements.forEach(function (element, i) {
 
@@ -30,8 +30,8 @@ elements.forEach(function (element, i) {
 
 anchors.forEach(function (anchor) {
   
-  var a = anchor.href;
-	var u = a.toString().split("/")[3]; //Gets the anchor links and removes slash
+  // var a = anchor.href;
+	// var u = a.toString().split("/")[3]; //Gets the anchor links and removes slash
 
 	anchor.addEventListener('click', function(e) {
 
@@ -39,7 +39,7 @@ anchors.forEach(function (anchor) {
 		
 		var t = e.target.href.toString().split("/")[3]; //Get the url and remove the slash
 
-		console.log(t); 
+		// console.log(t); 
 
 		window.history.pushState({}, "", t); //Change the url using the target url without page reload.
 
