@@ -14,11 +14,12 @@ elements.forEach(function (element, i) {
 
 	if (id == s) {
 		element.classList.add("open");
+    element404.classList.remove("open");
 	} 
 
-  if (404) {
-		element404.classList.add("open");
-	}
+  // if (404 || id !== s) {
+	// 	element404.classList.add("open");
+	// }
 
   if (s == 0) {
 		elementHome.classList.add("open");
