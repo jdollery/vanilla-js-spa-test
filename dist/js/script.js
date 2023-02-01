@@ -1,46 +1,6 @@
 var anchors = document.querySelectorAll('.tabs__item__btn');
 var elements = document.querySelectorAll('.tabs__item');
 
-// anchors.forEach(function (anchor, index) {
-
-  // create document click that watches the nav links only
-  // document.addEventListener("click", (e) => {
-  //   const { target } = e;
-  //   if (!target.matches(anchors)) {
-  //     return;
-  //   }
-  //   e.preventDefault();
-  //   urlRoute();
-  // });
-
-  
-
-// });
-
-// create an object that maps the url to the template, title, and description
-// const urlRoutes = {
-// 	404: {
-// 		template: "/templates/404.html",
-// 		title: "404 | " + urlPageTitle,
-// 		description: "Page not found",
-// 	},
-// 	"/": {
-// 		template: "/templates/index.html",
-// 		title: "Home | " + urlPageTitle,
-// 		description: "This is the home page",
-// 	},
-// 	"/about": {
-// 		template: "/templates/about.html",
-// 		title: "About Us | " + urlPageTitle,
-// 		description: "This is the about page",
-// 	},
-// 	"/contact": {
-// 		template: "/templates/contact.html",
-// 		title: "Contact Us | " + urlPageTitle,
-// 		description: "This is the contact page",
-// 	},
-// };
-
 var b = window.location.href 
 var s = b.toString().split("/")[3]; //Gets current URL removes slash
 console.log(s);
@@ -49,10 +9,20 @@ elements.forEach(function (element, i) {
 
 	var id = elements[i].id;
 	var element = document.getElementById(id);
+	var elementHome = elements[0];
+	var element404 = document.getElementById('404');
 
 	if (id == s) {
 		element.classList.add("open");
 	} 
+
+	if (s == 0) {
+		elementHome.classList.add("open");
+	}
+
+	if (s !== id) {
+		element404.classList.add("open");
+	}
 
 });
 
@@ -60,27 +30,6 @@ anchors.forEach(function (anchor) {
   
   var a = anchor.href;
 	var u = a.toString().split("/")[3]; //Gets the anchor links and removes slash
-	// console.log(u); 
-
-  // // create a function that watches the url and calls the urlLocationHandler
-  // const urlRoute = (event) => {
-  //   event = event || window.event; // get window.event if event argument not provided
-  //   event.preventDefault();
-  //   // window.history.pushState(state, unused, target link);
-  //   window.history.pushState({}, "", event.target.href);
-  //   urlLocationHandler();
-  // };
-
-	// elements.forEach(function (element, i) {
-
-	// });
-
-	// window.addEventListener('popstate', function(e) {
-	
-	// console.log('POP')
-
-	// });
-
 
 	anchor.addEventListener('click', function(e) {
 
