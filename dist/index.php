@@ -13,6 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
     <meta name="description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
@@ -23,19 +26,20 @@
         <div class="tabs__item" id="section-1">
           <a class="tabs__item__btn" href="/section-1">Tab 1</a>
           <div class="tabs__item__content">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>consectetur adipiscing elit. Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</p>
           </div>
         </div>
         <div class="tabs__item" id="section-2">
           <a class="tabs__item__btn" href="/section-2">Tab 2</a>
           <div class="tabs__item__content">
-            <h3>Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
+            <p>Donec orci nisi, tempus id sapien id, tincidunt fermentum risus. Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</p>
           </div>
         </div>
         <div class="tabs__item" id="section-3">
           <a class="tabs__item__btn" href="/section-3">Tab 3</a>
           <div class="tabs__item__content">
-            <h3>Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</h3>
+            <p>Praesent dapibus, mauris eget varius porttitor, ex purus tempus lectus, vitae venenatis quam ante sed erat. Cras luctus luctus nisl, ac cursus nibh lacinia sit amet. Aenean sit amet ultricies nisl, id cursus turpis. Sed ultricies fermentum massa, ac rhoncus erat sollicitudin ut. Integer elementum vel elit quis molestie. Suspendisse dui urna, egestas non leo ut, condimentum varius arcu. Phasellus sagittis massa sem, vel consectetur sem ultricies id. Maecenas vehicula pulvinar justo sit amet bibendum. Proin placerat lobortis ex nec fringilla. Vivamus malesuada pretium rhoncus.</p>
           </div>
         </div>
         <div class="tabs__item open" id="404">

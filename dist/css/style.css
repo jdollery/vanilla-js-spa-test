@@ -1,3 +1,17 @@
+@font-face {
+  font-family: './fonts/Balneario Script Caps';
+  src: url('./fonts/Balneario-ScriptCaps.eot');
+  src: url('./fonts/Balneario-ScriptCaps.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/Balneario-ScriptCaps.woff2') format('woff2'),
+      url('./fonts/Balneario-ScriptCaps.woff') format('woff'),
+      url('./fonts/Balneario-ScriptCaps.ttf') format('truetype'),
+      url('./fonts/Balneario-ScriptCaps.svg#Balneario-ScriptCaps') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 html {
   font-family: sans-serif;
   font-size: 62.5%;
@@ -77,11 +91,13 @@ video {
 
 body {
   font-size: 1.7rem;
-  font-family: "Open Sans",sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #2d2d2d;
-  background-color: #fefefe;
+  /* color: #fefefe; */
+  background: #f0f0e7;
+  /* background: #1b1b2d; */
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -353,6 +369,15 @@ img {
   cursor: default
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Balneario Script Caps';
+  color: #dd3235;
+}
+
+
+h1 {
+  font-size: 3.5rem
+}
 
 .view {
   position: relative;
