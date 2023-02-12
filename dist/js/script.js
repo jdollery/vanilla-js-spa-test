@@ -2,7 +2,7 @@ var anchors = document.querySelectorAll('.tabs__item__btn');
 var elements = document.querySelectorAll('.tabs__item');
 
 var b = window.location.href 
-var s = b.toString().split("/")[3]; //Gets current URL removes slash
+var s = b.toString().split("/")[3]; // * Gets current URL removes slash
 // console.log(s);
 
 elements.forEach(function (element, i) {
